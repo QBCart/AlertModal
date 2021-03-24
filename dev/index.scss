@@ -1,0 +1,14 @@
+@use '../src/index';
+body {
+  background: lightgrey;
+}
+.app-bar {
+  display: block;
+  height: 64px;
+  width: 100%;
+  background: black;
+}
+
+button {
+  margin-top: 300px;
+}
