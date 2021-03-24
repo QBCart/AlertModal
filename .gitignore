@@ -1,0 +1,13 @@
+# node.js
+node_modules
+.npmrc
+
+# snowpack output
+build
+.snowpack
+
+# typescript output
+dist
+
+# Apple Snooping File
+.DS_Store
