@@ -9,5 +9,4 @@
 # Alert Modal
 Alert modal component used across the QBCart UI ecosystem.
 
-###### Licensed under MIT
-###### Copyright (c) 2020 QBCart Inc. All rights reserved.
+###### Licensed under MIT - Copyright (c) 2020 QBCart Inc. All rights reserved.
