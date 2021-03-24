@@ -7,6 +7,7 @@
 <img align="center" src="https://avatars2.githubusercontent.com/u/45455933" width="96" height="96" />
 
 # Alert Modal
+
 Alert modal component used across the QBCart UI ecosystem.
 
 ###### Licensed under MIT - Copyright (c) 2020 QBCart Inc. All rights reserved.
