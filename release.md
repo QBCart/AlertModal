@@ -2,7 +2,7 @@
 
 # New
 
-- Toast component used across the QBCart UI ecosystem.
+- Alert modal component used across the QBCart UI ecosystem.
 
 # Fixes
 
@@ -12,4 +12,4 @@
 
 - none
 
-###### Copyright (c) 2020 QBCart Inc. All rights reserved.
+###### Licensed under MIT - Copyright (c) 2020 QBCart Inc. All rights reserved.
