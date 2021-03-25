@@ -1,0 +1,82 @@
+name: CI
+
+####################
+# Start the job on #
+####################
+on: push
+
+###################
+# Set Global Envs #
+###################
+env:
+  NODE_VERSION: '12'
+
+############
+# Set Jobs #
+############
+jobs:
+  ##############
+  # Define Job #
+  ##############
+  continuos-integration:
+    name: Continuos Integration
+    runs-on: ubuntu-latest
+
+    ##############
+    # Load Steps #
+    ##############
+    steps:
+      #################
+      # Checkout Code #
+      #################
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      #################
+      # Setup Node JS #
+      #################
+      - name: Setup Node JS
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      ################
+      # Install Deps #
+      ################
+      - name: Install Deps
+        working-directory: .
+        shell: bash
+        run: npm install
+
+      #############
+      # Lint Code #
+      #############
+      - name: Lint Code
+        working-directory: .
+        shell: bash
+        run: npm run lint
+
+      ################
+      # Check Format #
+      ################
+      - name: Check Format
+        working-directory: .
+        shell: bash
+        run: npm run format:check
+
+      #################
+      # Build Project #
+      #################
+      - name: Build Project
+        working-directory: .
+        shell: bash
+        run: npm run build
+
+      #############
+      # Run Tests #
+      #############
+      - name: Run Tests
+        working-directory: .
+        shell: bash
+        run: |
+          npm run test:ci
