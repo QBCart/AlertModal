@@ -37,6 +37,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:ci": "echo \"All Good\" && exit 0"
   },
+  "dependencies": {},
   "devDependencies": {
     "@snowpack/plugin-sass": "^1.4.0",
     "@types/react": "^17.0.3",
@@ -61,8 +62,5 @@
     "!.*": [
       "prettier . --write"
     ]
-  },
-  "dependencies": {
-    "material-design-icons": "^3.0.1"
   }
 }
