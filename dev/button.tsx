@@ -4,7 +4,16 @@ import {
 } from 'https://cdn.skypack.dev/@qbcart/eshop-skypack-deps';
 
 interface Props {
-  showAlertModal: (header: string, body: string, icon?: string) => void;
+  showAlertModal: (
+    headerText: string,
+    bodyHTML: string,
+    headerTextColor?: string,
+    headerBackgroundColor?: string,
+    bodyTextColor?: string,
+    bodyBackgroundColor?: string,
+    iconName?: string,
+    iconColor?: string
+  ) => void;
 }
 
 const DevButton: React.FC<Props> = (props: Props) => {
@@ -12,9 +21,14 @@ const DevButton: React.FC<Props> = (props: Props) => {
     <button
       onClick={() =>
         props.showAlertModal(
-          'Alert',
-          '<span class="text-success">This is an Alert!</span>',
-          '<span class="material-icons">error_outline</span>'
+          'Alert!',
+          '<span>This is an Alert!</span>',
+          '#2d2d2d',
+          'red',
+          'blue',
+          'lightgrey',
+          'home',
+          'white'
         )
       }
     >
@@ -24,8 +38,17 @@ const DevButton: React.FC<Props> = (props: Props) => {
 };
 
 const mountDevButton = (
-  showAlertModal: (header: string, body: string, icon?: string) => void
-) => {
+  showAlertModal: (
+    headerText: string,
+    bodyHTML: string,
+    headerTextColor?: string,
+    headerBackgroundColor?: string,
+    bodyTextColor?: string,
+    bodyBackgroundColor?: string,
+    iconName?: string,
+    iconColor?: string
+  ) => void
+): void => {
   render(
     <DevButton showAlertModal={showAlertModal} />,
     document.getElementById('dev-button')
