@@ -5,9 +5,8 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "baseUrl": "./",
     "rootDir": "src",
-    "outDir": "build",
     "paths": {
-      "https://cdn.skypack.dev/@qbcart/eshop-skypack-deps": ["skypack.d.ts"]
+      "https*": ["skypack.d.ts"]
     },
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
@@ -19,16 +18,16 @@
     "declaration": true,
     "declarationMap": true,
     "declarationDir": "dist/types",
-    "sourceMap": false,
-    "strict": true,
+    "emitDeclarationOnly": true,
+    "sourceMap": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "noImplicitAny": true,
     "isolatedModules": true,
-    "noEmit": false,
-    "noImplicitAny": false,
     "jsx": "react"
   },
-  "include": ["src"]
+  "include": ["src", "skypack.d.ts"]
 }
