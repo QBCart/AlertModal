@@ -24,23 +24,73 @@ const mountAlertModal = (): void => {
 };
 
 /**
- * @param {string} header - Can be text or html string - changes the header text of the toast
- * @param {string} body - Can be text or html string - changes the body text of the toast
- * @param {string} icon - text - changes the default material.io icon on the modal header
+ * @param {string} headerText - the text displayed in the header of the modal
+ * @param {string} bodyHTML - the content displayed in the body of the modal (can be text or html string)
+ * @param {string} headerTextColor (optional) - a valid css color to override the default header text color
+ * @param {string} headerBackgroundColor (optional) - a valid css color to override the default header background color
+ * @param {string} bodyTextColor (optional) - a valid css color to override the default body text color
+ * @param {string} bodyBackgroundColor (optional) - a valid css color to override the default body background color
+ * @param {string} iconName (optional) - the name of a material icon to override the default company logo
+ * @param {string} iconColor (optional) - a valid css color to override the default material icon color
  */
-const showAlertModal = (header: string, body: string, icon?: string): void => {
-  const toastMountDiv = document.getElementById(id)!;
+const showAlertModal = (
+  headerText: string,
+  bodyHTML: string,
+  headerTextColor?: string,
+  headerBackgroundColor?: string,
+  bodyTextColor?: string,
+  bodyBackgroundColor?: string,
+  iconName?: string,
+  iconColor?: string
+): void => {
+  const alertModalMountDiv = document.getElementById(id)!;
 
-  toastMountDiv.querySelector(
+  alertModalMountDiv.querySelector(
     '.qbc-alert-modal-header-text'
-  )!.innerHTML = header;
-  toastMountDiv.querySelector('.qbc-alert-modal-body')!.innerHTML = body;
-  if (icon) {
-    toastMountDiv.querySelector('.qbc-alert-modal-icon')!.innerHTML = icon;
+  )!.innerHTML = headerText;
+  alertModalMountDiv.querySelector(
+    '.qbc-alert-modal-body'
+  )!.innerHTML = bodyHTML;
+
+  if (headerTextColor) {
+    alertModalMountDiv.querySelector<HTMLElement>(
+      '.qbc-alert-modal-header-text'
+    )!.style.color = headerTextColor;
   }
 
-  toastMountDiv.classList.remove('qbc-alert-modal-hidden');
-  toastMountDiv.classList.add('qbc-alert-modal-shown');
+  if (headerBackgroundColor) {
+    alertModalMountDiv.querySelector<HTMLElement>(
+      '.qbc-alert-modal-header'
+    )!.style.background = headerBackgroundColor;
+  }
+
+  if (bodyTextColor) {
+    alertModalMountDiv.querySelector<HTMLElement>(
+      '.qbc-alert-modal-body'
+    )!.style.color = bodyTextColor;
+  }
+
+  if (bodyBackgroundColor) {
+    alertModalMountDiv.querySelector<HTMLElement>(
+      '.qbc-alert-modal-content'
+    )!.style.background = bodyBackgroundColor;
+  }
+
+  if (iconName) {
+    alertModalMountDiv.querySelector(
+      '.qbc-alert-modal-icon'
+    )!.innerHTML = `<span class="material-icons">${iconName}</span>`;
+  }
+
+  if (iconColor) {
+    alertModalMountDiv.querySelector<HTMLElement>(
+      '.qbc-alert-modal-header'
+    )!.style.color = iconColor;
+  }
+
+  alertModalMountDiv.classList.remove('qbc-alert-modal-none');
+  alertModalMountDiv.classList.remove('qbc-alert-modal-hidden');
+  alertModalMountDiv.classList.add('qbc-alert-modal-shown');
 };
 
-export { mountAlertModal as mountAlertModal, showAlertModal as showAlertModal };
+export { mountAlertModal, showAlertModal };
