@@ -1,7 +1,7 @@
 {
-  "name": "@qbcart/toast",
+  "name": "@qbcart/alert-modal",
   "version": "1.0.0",
-  "description": "Toast component used across the QBCart UI ecosystem.",
+  "description": "Alert modal component used across the QBCart UI ecosystem.",
   "keywords": [
     "skypack",
     "deps",
@@ -22,12 +22,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/QBCart/Toast.git"
+    "url": "git+https://github.com/QBCart/AlertModal.git"
   },
   "bugs": {
-    "url": "https://github.com/QBCart/Toast/issues"
+    "url": "https://github.com/QBCart/AlertModal/issues"
   },
-  "homepage": "https://github.com/QBCart/Toast#readme",
+  "homepage": "https://github.com/QBCart/AlertModal#readme",
   "scripts": {
     "start": "snowpack dev --config snowpack.dev.config.js",
     "build": "snowpack build && tsc",
