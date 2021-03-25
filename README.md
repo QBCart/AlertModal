@@ -2,7 +2,7 @@
 
 | Source | Releases | Packages |
 | --- | --- | --- |
-| ![CI](https://github.com/QBCart/AlertModall/workflows/CI/badge.svg) | ![Latest](https://github.com/QBCart/AlertModal/workflows/Latest/badge.svg) | ![npm](https://github.com/QBCart/AlertModal/workflows/npm/badge.svg) |
+| ![CI](https://github.com/QBCart/AlertModal/actions/workflows/continuos-integration.yml/badge.svg) | ![Latest](https://github.com/QBCart/AlertModal/workflows/Latest/badge.svg) | ![npm](https://github.com/QBCart/AlertModal/workflows/npm/badge.svg) |
 
 <img align="center" src="https://avatars2.githubusercontent.com/u/45455933" width="96" height="96" />
 
