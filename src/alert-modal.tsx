@@ -5,13 +5,13 @@
  */
 
 import React, { FC, useEffect } from 'react';
-import StyledAlertModalBackdrop from './styled-components/styled-alert-modal-backdrop';
-import StyledAlertModalContent from './styled-components/styled-alert-modal-content';
-import StyledAlertModalHeader from './styled-components/styled-alert-modal-header';
-import StyledAlertModalHeaderText from './styled-components/styled-alert-modal-header-text';
-import StyledAlertModalIcon from './styled-components/styled-alert-modal-icon';
-import StyledAlertModalBody from './styled-components/styled-alert-modal-body';
-import StyledAlertModalFooter from './styled-components/styled-alert-modal-footer';
+import StyledAlertModalBackdrop from './styled-components/styled-alert-modal-backdrop.js';
+import StyledAlertModalContent from './styled-components/styled-alert-modal-content.js';
+import StyledAlertModalHeader from './styled-components/styled-alert-modal-header.js';
+import StyledAlertModalHeaderText from './styled-components/styled-alert-modal-header-text.js';
+import StyledAlertModalIcon from './styled-components/styled-alert-modal-icon.js';
+import StyledAlertModalBody from './styled-components/styled-alert-modal-body.js';
+import StyledAlertModalFooter from './styled-components/styled-alert-modal-footer.js';
 
 interface Props {
   id: string;

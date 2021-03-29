@@ -6,7 +6,7 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import AlertModal from './alert-modal';
+import AlertModal from './alert-modal.js';
 
 const id = 'qbc-alert-modal';
 
