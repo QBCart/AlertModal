@@ -4,15 +4,15 @@
  * This code can only be used and/or distributed with express permission.
  */
 
-import { React } from 'https://cdn.skypack.dev/@qbcart/eshop-skypack-deps';
+import React, { FC, useEffect } from 'react';
 
 interface Props {
   id: string;
   imagesStorageUrl: string;
 }
 
-const AlterModal: React.FC<Props> = (props: Props) => {
-  React.useEffect(() => {
+const AlterModal: FC<Props> = (props: Props) => {
+  useEffect(() => {
     const alertModal = document.getElementById(props.id)!;
     alertModal.addEventListener('animationend', () => {
       if (alertModal.classList.contains('qbc-alert-modal-hide')) {
