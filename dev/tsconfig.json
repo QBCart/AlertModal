@@ -5,9 +5,7 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "baseUrl": "../",
     "rootDir": "../",
-    "paths": {
-      "https://cdn.skypack.dev/@qbcart/eshop-skypack-deps": ["skypack.d.ts"]
-    },
+    "paths": {},
     "experimentalDecorators": true,
     "noEmit": true,
     "importsNotUsedAsValues": "error",
