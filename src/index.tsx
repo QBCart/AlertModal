@@ -10,7 +10,7 @@ import AlertModal from './alert-modal';
 
 const id = 'qbc-alert-modal';
 
-const mountAlertModal = (): void => {
+(function () {
   const alertModal = document.getElementById(id);
   render(
     <AlertModal
@@ -19,7 +19,7 @@ const mountAlertModal = (): void => {
     />,
     alertModal
   );
-};
+})();
 
 /**
  * @param {string} headerText - the text displayed in the header of the modal
@@ -91,4 +91,4 @@ const showAlertModal = (
   alertModalMountDiv.classList.add('qbc-alert-modal-shown');
 };
 
-export { mountAlertModal, showAlertModal };
+export { showAlertModal };
