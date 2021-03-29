@@ -1,7 +1,6 @@
-import {
-  React,
-  render
-} from 'https://cdn.skypack.dev/@qbcart/eshop-skypack-deps';
+import React, { FC } from 'react';
+import { render } from 'react-dom';
+import { showAlertModal } from 'alert-modal';
 
 interface Props {
   showAlertModal: (
@@ -16,7 +15,7 @@ interface Props {
   ) => void;
 }
 
-const DevButton: React.FC<Props> = (props: Props) => {
+const DevButton: FC<Props> = (props: Props) => {
   return (
     <button
       onClick={() =>
@@ -37,22 +36,9 @@ const DevButton: React.FC<Props> = (props: Props) => {
   );
 };
 
-const mountDevButton = (
-  showAlertModal: (
-    headerText: string,
-    bodyHTML: string,
-    headerTextColor?: string,
-    headerBackgroundColor?: string,
-    bodyTextColor?: string,
-    bodyBackgroundColor?: string,
-    iconName?: string,
-    iconColor?: string
-  ) => void
-): void => {
+(function () {
   render(
     <DevButton showAlertModal={showAlertModal} />,
     document.getElementById('dev-button')
   );
-};
-
-export default mountDevButton;
+})();
