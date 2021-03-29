@@ -56,21 +56,21 @@ const showAlertModal = (
   )!;
   alertModalHeaderText.innerHTML = headerText;
   alertModalBody.innerHTML = bodyHTML;
-  alertModalHeaderText.style.color = headerTextColor ?? 'lightgray';
+  alertModalHeaderText.style.color = headerTextColor || 'lightgray';
   alertModalMountDiv.querySelector<HTMLElement>(
     `#${id}-header`
-  )!.style.background = headerBackgroundColor ?? 'darkslategray';
-  alertModalBody.style.color = bodyTextColor ?? 'black';
+  )!.style.background = headerBackgroundColor || 'darkslategray';
+  alertModalBody.style.color = bodyTextColor || 'black';
 
   alertModalMountDiv.querySelector<HTMLElement>(
     `#${id}-content`
-  )!.style.background = bodyBackgroundColor ?? 'white';
+  )!.style.background = bodyBackgroundColor || 'white';
 
   if (iconName) {
     alertModalIcon.innerHTML = `<span class="material-icons" style="margin-top: -1px; height: 30px; font-size: 32px;">${iconName}</span>`;
   }
 
-  alertModalIcon.style.color = iconColor ?? '#dc3545';
+  alertModalIcon.style.color = iconColor || '#dc3545';
 
   alertModalBackdrop.style.display = 'flex';
   alertModalBackdrop.style.animationName = 'var(--alert-modal-show)';
