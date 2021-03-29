@@ -42,53 +42,38 @@ const showAlertModal = (
   iconColor?: string
 ): void => {
   const alertModalMountDiv = document.getElementById(id)!;
+  const alertModalHeaderText = alertModalMountDiv.querySelector<HTMLElement>(
+    `#${id}-header-text`
+  )!;
+  const alertModalBody = alertModalMountDiv.querySelector<HTMLElement>(
+    `#${id}-body`
+  )!;
+  const alertModalIcon = alertModalMountDiv.querySelector<HTMLElement>(
+    `#${id}-icon`
+  )!;
+  const alertModalBackdrop = alertModalMountDiv.querySelector<HTMLElement>(
+    `#${id}-backdrop`
+  )!;
+  alertModalHeaderText.innerHTML = headerText;
+  alertModalBody.innerHTML = bodyHTML;
+  alertModalHeaderText.style.color = headerTextColor ?? 'lightgray';
+  alertModalMountDiv.querySelector<HTMLElement>(
+    `#${id}-header`
+  )!.style.background = headerBackgroundColor ?? 'darkslategray';
+  alertModalBody.style.color = bodyTextColor ?? 'black';
 
-  alertModalMountDiv.querySelector(
-    '.qbc-alert-modal-header-text'
-  )!.innerHTML = headerText;
-  alertModalMountDiv.querySelector(
-    '.qbc-alert-modal-body'
-  )!.innerHTML = bodyHTML;
-
-  if (headerTextColor) {
-    alertModalMountDiv.querySelector<HTMLElement>(
-      '.qbc-alert-modal-header-text'
-    )!.style.color = headerTextColor;
-  }
-
-  if (headerBackgroundColor) {
-    alertModalMountDiv.querySelector<HTMLElement>(
-      '.qbc-alert-modal-header'
-    )!.style.background = headerBackgroundColor;
-  }
-
-  if (bodyTextColor) {
-    alertModalMountDiv.querySelector<HTMLElement>(
-      '.qbc-alert-modal-body'
-    )!.style.color = bodyTextColor;
-  }
-
-  if (bodyBackgroundColor) {
-    alertModalMountDiv.querySelector<HTMLElement>(
-      '.qbc-alert-modal-content'
-    )!.style.background = bodyBackgroundColor;
-  }
+  alertModalMountDiv.querySelector<HTMLElement>(
+    `#${id}-content`
+  )!.style.background = bodyBackgroundColor ?? 'white';
 
   if (iconName) {
-    alertModalMountDiv.querySelector(
-      '.qbc-alert-modal-icon'
-    )!.innerHTML = `<span class="material-icons">${iconName}</span>`;
+    alertModalIcon.innerHTML = `<span class="material-icons" style="margin-top: -1px; height: 30px; font-size: 32px;">${iconName}</span>`;
   }
 
-  if (iconColor) {
-    alertModalMountDiv.querySelector<HTMLElement>(
-      '.qbc-alert-modal-header'
-    )!.style.color = iconColor;
-  }
+  alertModalIcon.style.color = iconColor ?? '#dc3545';
 
-  alertModalMountDiv.classList.remove('qbc-alert-modal-none');
-  alertModalMountDiv.classList.remove('qbc-alert-modal-hidden');
-  alertModalMountDiv.classList.add('qbc-alert-modal-shown');
+  alertModalBackdrop.style.display = 'flex';
+  alertModalBackdrop.style.animationName = 'var(--alert-modal-show)';
 };
 
 export { showAlertModal };

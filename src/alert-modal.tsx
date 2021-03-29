@@ -5,6 +5,13 @@
  */
 
 import React, { FC, useEffect } from 'react';
+import StyledAlertModalBackdrop from './styled-components/styled-alert-modal-backdrop';
+import StyledAlertModalContent from './styled-components/styled-alert-modal-content';
+import StyledAlertModalHeader from './styled-components/styled-alert-modal-header';
+import StyledAlertModalHeaderText from './styled-components/styled-alert-modal-header-text';
+import StyledAlertModalIcon from './styled-components/styled-alert-modal-icon';
+import StyledAlertModalBody from './styled-components/styled-alert-modal-body';
+import StyledAlertModalFooter from './styled-components/styled-alert-modal-footer';
 
 interface Props {
   id: string;
@@ -13,49 +20,49 @@ interface Props {
 
 const AlterModal: FC<Props> = (props: Props) => {
   useEffect(() => {
-    const alertModal = document.getElementById(props.id)!;
-    alertModal.addEventListener('animationend', () => {
-      if (alertModal.classList.contains('qbc-alert-modal-hide')) {
-        alertModal.classList.remove('qbc-alert-modal-hide');
-        alertModal.classList.add('qbc-alert-modal-hidden');
+    const alertModalBackdrop = document.getElementById(`${props.id}-backdrop`)!;
+    alertModalBackdrop.addEventListener('animationend', () => {
+      if (alertModalBackdrop.classList.contains('qbc-alert-modal-visible')) {
+        alertModalBackdrop.classList.remove('qbc-alert-modal-visible');
+        alertModalBackdrop.style.display = 'none';
+      } else {
+        alertModalBackdrop.classList.add('qbc-alert-modal-visible');
       }
     });
   }, [props.id]);
 
   function hideModal() {
-    const alertModal = document.getElementById(props.id)!;
-    alertModal.classList.remove('qbc-alert-modal-shown');
-    alertModal.classList.add('qbc-alert-modal-hide');
+    const alertModalBackdrop = document.getElementById(`${props.id}-backdrop`)!;
+    alertModalBackdrop.style.animationName = 'var(--alert-modal-hide)';
   }
 
   return (
-    <div>
-      <div className="qbc-alert-modal-backdrop">
-        <div className="qbc-alert-modal-content">
-          <div className="qbc-alert-modal-header">
-            <div className="qbc-alert-modal-icon">
-              <img
-                src={`${props.imagesStorageUrl}images/favicon.ico`}
-                alt="company logo"
-              />
-            </div>
-            <div className="qbc-alert-modal-header-text"></div>
-          </div>
+    <StyledAlertModalBackdrop id={`${props.id}-backdrop`}>
+      <StyledAlertModalContent>
+        <StyledAlertModalHeader>
+          <StyledAlertModalIcon>
+            <img
+              src={`${props.imagesStorageUrl}images/favicon.ico`}
+              alt="company logo"
+              height="36"
+            />
+          </StyledAlertModalIcon>
+          <StyledAlertModalHeaderText />
+        </StyledAlertModalHeader>
 
-          <div className="qbc-alert-modal-body"></div>
+        <StyledAlertModalBody />
 
-          <div className="qbc-alert-modal-footer">
-            <button
-              onClick={hideModal}
-              className="btn btn-secondary"
-              type="button"
-            >
-              OK
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+        <StyledAlertModalFooter>
+          <button
+            onClick={hideModal}
+            className="btn btn-secondary"
+            type="button"
+          >
+            OK
+          </button>
+        </StyledAlertModalFooter>
+      </StyledAlertModalContent>
+    </StyledAlertModalBackdrop>
   );
 };
 
