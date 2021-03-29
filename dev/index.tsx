@@ -20,14 +20,8 @@ const DevButton: FC<Props> = (props: Props) => {
     <button
       onClick={() =>
         props.showAlertModal(
-          'Alert!',
-          '<span>This is an Alert!</span>',
-          '#2d2d2d',
-          'red',
-          'blue',
-          'lightgrey',
-          'home',
-          'white'
+          'Invalid Input',
+          '<h5>Quantity must be a positive whole number greater than zero</h5>'
         )
       }
     >
