@@ -18,6 +18,6 @@ module.exports = {
     'react': 'https://qbcdemo.z13.web.core.windows.net/deps/react.js',
     'react-dom': 'https://qbcdemo.z13.web.core.windows.net/deps/react-dom.js',
     'styled-components': 'https://qbcdemo.z13.web.core.windows.net/deps/styled-components.js',
-    'alert-modal': 'https://qbcdemo.z13.web.core.windows.net/toast/index.js'
+    'alert-modal': 'https://qbcdemo.z13.web.core.windows.net/alert-modal/index.js'
   }
 };
