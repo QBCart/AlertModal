@@ -9,6 +9,7 @@
 import styled from 'styled-components';
 
 const StyledAlertModalHeaderText = styled.div`
+  line-height: 1.7;
   font-size: 24px;
   margin-left: 10px;
 `;
