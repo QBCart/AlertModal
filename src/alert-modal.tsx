@@ -38,19 +38,19 @@ const AlterModal: FC<Props> = (props: Props) => {
 
   return (
     <StyledAlertModalBackdrop id={`${props.id}-backdrop`}>
-      <StyledAlertModalContent>
-        <StyledAlertModalHeader>
-          <StyledAlertModalIcon>
+      <StyledAlertModalContent id={`${props.id}-content`}>
+        <StyledAlertModalHeader id={`${props.id}-header`}>
+          <StyledAlertModalIcon id={`${props.id}-icon`}>
             <img
               src={`${props.imagesStorageUrl}images/favicon.ico`}
               alt="company logo"
               height="36"
             />
           </StyledAlertModalIcon>
-          <StyledAlertModalHeaderText />
+          <StyledAlertModalHeaderText id={`${props.id}-header-text`} />
         </StyledAlertModalHeader>
 
-        <StyledAlertModalBody />
+        <StyledAlertModalBody id={`${props.id}-body`} />
 
         <StyledAlertModalFooter>
           <button
