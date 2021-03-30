@@ -5,7 +5,7 @@ body {
   display: block;
   height: 64px;
   width: 100%;
-  background: black;
+  background: red;
 }
 
 #dev-button {
