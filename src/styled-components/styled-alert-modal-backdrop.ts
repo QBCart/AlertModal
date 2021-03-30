@@ -29,6 +29,7 @@ const AlertModalHide = keyframes`
 const StyledAlertModalBackdrop = styled.div`
   position: fixed;
   display: none;
+  top: 0;
   height: 100vh;
   width: 100vw;
   justify-content: center;
