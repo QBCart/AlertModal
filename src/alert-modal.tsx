@@ -6,7 +6,8 @@
  * LICENSE file in the root directory of this source repo.
  */
 
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useState, createRef } from 'react';
+import { useAlerts, useRemoveAlert } from '@qbcart/eshop-local-db';
 import StyledAlertModalBackdrop from './styled-components/styled-alert-modal-backdrop.js';
 import StyledAlertModalContent from './styled-components/styled-alert-modal-content.js';
 import StyledAlertModalHeader from './styled-components/styled-alert-modal-header.js';
@@ -20,39 +21,107 @@ interface Props {
   imagesStorageUrl: string;
 }
 
-const AlterModal: FC<Props> = (props: Props) => {
-  useEffect(() => {
-    const alertModalBackdrop = document.getElementById(`${props.id}-backdrop`)!;
-    alertModalBackdrop.addEventListener('animationend', () => {
-      if (alertModalBackdrop.classList.contains('qbc-alert-modal-visible')) {
-        alertModalBackdrop.classList.remove('qbc-alert-modal-visible');
-        alertModalBackdrop.style.display = 'none';
-      } else {
-        alertModalBackdrop.classList.add('qbc-alert-modal-visible');
-      }
-    });
-  }, [props.id]);
+const AlertModal: FC<Props> = (props: Props) => {
+  const ref = createRef<HTMLDivElement>();
+  const alerts = useAlerts(false);
+  const [alert, setAlert] = useState(
+    (alerts?.length ?? 0) > 0 ? alerts[0] : undefined
+  );
+  const removeAlert = useRemoveAlert(false);
 
-  function hideModal() {
-    const alertModalBackdrop = document.getElementById(`${props.id}-backdrop`)!;
-    alertModalBackdrop.style.animationName = 'var(--alert-modal-hide)';
-  }
+  // get one at a time from queue
+  useEffect(() => {
+    console.log('get');
+    if ((alerts?.length ?? 0) > 0) {
+      setAlert((alert) => {
+        if (alert?.id === alerts[0].id) return alert;
+        else return alerts[0];
+      });
+    }
+  }, [alerts]);
+
+  // show alert modal
+  useEffect(() => {
+    console.log('show');
+    if (alert) {
+      const modal = ref.current!;
+      modal.style.animationName = 'var(--alert-modal-show)';
+      modal.style.display = 'flex';
+      modal.style.justifyContent = 'center';
+      modal.style.alignItems = 'center';
+
+      const content = modal.querySelector<HTMLDivElement>(
+        `#${props.id}-content`
+      )!;
+      content.style.backgroundColor = alert.bodyBackgroundColor ?? 'white';
+      content.style.color = alert.bodyTextColor ?? 'black';
+
+      const header = modal.querySelector<HTMLDivElement>(
+        `#${props.id}-header`
+      )!;
+      header.style.backgroundColor =
+        alert.headerBackgroundColor ?? 'darkslategray';
+
+      const headerText = modal.querySelector<HTMLDivElement>(
+        `#${props.id}-header-text`
+      )!;
+      headerText.style.color = alert.headerTextColor ?? 'lightgray';
+
+      if (alert.iconName) {
+        const icon = modal.querySelector<HTMLDivElement>(`#${props.id}-icon`)!;
+        icon.innerHTML = `<span class="material-icons" style="margin-top: -1px; font-size: 32px; color: ${
+          alert.iconColor ?? '#dc3545'
+        }">${alert.iconName}</span>`;
+      }
+    }
+  }, [alert, ref, props]);
+
+  const hideModal = () => {
+    const modal = ref.current!;
+    modal.style.animationName = 'var(--alert-modal-hide)';
+  };
+
+  const onAnimationEnd = async (): Promise<void> => {
+    const modal = ref.current!;
+    modal.style.animationName = '';
+
+    if (modal.classList.contains('qbc-alert-modal-visible')) {
+      modal.classList.remove('qbc-alert-modal-visible');
+      modal.style.display = 'none';
+      if (alert) {
+        removeAlert(alert.id!);
+        setAlert(undefined);
+      }
+      console.log('remove');
+    } else {
+      modal.classList.add('qbc-alert-modal-visible');
+    }
+  };
 
   return (
-    <StyledAlertModalBackdrop id={`${props.id}-backdrop`}>
+    <StyledAlertModalBackdrop
+      ref={ref}
+      id={`${props.id}-backdrop`}
+      onAnimationEnd={() => onAnimationEnd()}
+    >
       <StyledAlertModalContent id={`${props.id}-content`}>
         <StyledAlertModalHeader id={`${props.id}-header`}>
           <StyledAlertModalIcon id={`${props.id}-icon`}>
             <img
               src={`${props.imagesStorageUrl}images/favicon.ico`}
               alt="company logo"
-              height="36"
+              width="36"
             />
           </StyledAlertModalIcon>
-          <StyledAlertModalHeaderText id={`${props.id}-header-text`} />
+          <StyledAlertModalHeaderText
+            id={`${props.id}-header-text`}
+            dangerouslySetInnerHTML={{ __html: alert?.headerText ?? '' }}
+          />
         </StyledAlertModalHeader>
 
-        <StyledAlertModalBody id={`${props.id}-body`} />
+        <StyledAlertModalBody
+          dangerouslySetInnerHTML={{ __html: alert?.htmlBody ?? '' }}
+        />
 
         <StyledAlertModalFooter>
           <button
@@ -68,4 +137,4 @@ const AlterModal: FC<Props> = (props: Props) => {
   );
 };
 
-export default AlterModal;
+export default AlertModal;
