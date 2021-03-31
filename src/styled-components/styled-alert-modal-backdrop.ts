@@ -31,12 +31,9 @@ const StyledAlertModalBackdrop = styled.div`
   display: none;
   top: 0;
   height: 100vh;
-  width: 100vw;+
-  justify-content: center;
-  align-items: center;
+  width: 100vw;
   background: rgba(0, 0, 0, 0.5);
   z-index: 2000;
-  animation-name: '';
   animation-duration: 0.5s;
   --alert-modal-show: ${AlertModalShow};
   --alert-modal-hide: ${AlertModalHide};

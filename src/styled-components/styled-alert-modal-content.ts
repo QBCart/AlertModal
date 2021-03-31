@@ -12,7 +12,6 @@ const StyledAlertModalContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* height: 200px; */
   width: calc(100vw - 20px);
   max-width: 500px;
   border: 2px solid black;

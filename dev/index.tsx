@@ -1,28 +1,24 @@
+import { useAddAlert } from '@qbcart/eshop-local-db';
 import React, { FC } from 'react';
 import { render } from 'react-dom';
-import { showAlertModal } from 'alert-modal';
+import 'alert-modal';
 
-interface Props {
-  showAlertModal: (
-    headerText: string,
-    bodyHTML: string,
-    headerTextColor?: string,
-    headerBackgroundColor?: string,
-    bodyTextColor?: string,
-    bodyBackgroundColor?: string,
-    iconName?: string,
-    iconColor?: string
-  ) => void;
-}
-
-const DevButton: FC<Props> = (props: Props) => {
+const DevButton: FC = () => {
+  const addAlert = useAddAlert(false);
   return (
     <button
       onClick={() =>
-        props.showAlertModal(
-          'Invalid Input',
-          '<h5>Quantity must be a positive whole number greater than zero</h5>'
-        )
+        addAlert({
+          headerText: 'Invalid Input',
+          headerTextColor: 'red',
+          headerBackgroundColor: 'yellow',
+          htmlBody:
+            '<h6>Quantity must be a positive whole number greater than zero!</h6>',
+          bodyTextColor: 'green',
+          bodyBackgroundColor: 'skyblue',
+          iconName: 'home',
+          iconColor: 'pink'
+        })
       }
     >
       Show Alert Modal
@@ -31,8 +27,5 @@ const DevButton: FC<Props> = (props: Props) => {
 };
 
 (function () {
-  render(
-    <DevButton showAlertModal={showAlertModal} />,
-    document.getElementById('dev-button')
-  );
+  render(<DevButton />, document.getElementById('dev-button'));
 })();
