@@ -2,10 +2,7 @@
 
 ### New
 
-- ESM now deployed to storage account
-- External css no longer necessary (i.e., styled components)
-- All deps are streamed
-- Mounts automatically on js load
+- Uses LocalDB alert hooks.
 
 ### Fixes
 
@@ -13,7 +10,7 @@
 
 ### Breaking
 
-- NPM package now only contains types.
-- No longer exports mount function.
+- No longer exports showToast method.
+- Must use LocalDB "addAlert" hook to display.
 
 ###### Licensed under MIT - Copyright (c) 2021 QBCart Inc. All rights reserved.
