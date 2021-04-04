@@ -28,7 +28,6 @@ const AlertModal: FC<Props> = (props: Props) => {
 
   // show alert modal
   useEffect(() => {
-    console.log('show');
     if (alert) {
       const modal = ref.current!;
       modal.style.animationName = 'var(--alert-modal-show)';
@@ -39,24 +38,24 @@ const AlertModal: FC<Props> = (props: Props) => {
       const content = modal.querySelector<HTMLDivElement>(
         `#${props.id}-content`
       )!;
-      content.style.backgroundColor = alert.bodyBackgroundColor ?? 'white';
-      content.style.color = alert.bodyTextColor ?? 'black';
+      content.style.backgroundColor = alert.bodyBackgroundColor || 'white';
+      content.style.color = alert.bodyTextColor || 'black';
 
       const header = modal.querySelector<HTMLDivElement>(
         `#${props.id}-header`
       )!;
       header.style.backgroundColor =
-        alert.headerBackgroundColor ?? 'darkslategray';
+        alert.headerBackgroundColor || 'darkslategray';
 
       const headerText = modal.querySelector<HTMLDivElement>(
         `#${props.id}-header-text`
       )!;
-      headerText.style.color = alert.headerTextColor ?? 'lightgray';
+      headerText.style.color = alert.headerTextColor || 'lightgray';
 
       if (alert.iconName) {
         const icon = modal.querySelector<HTMLDivElement>(`#${props.id}-icon`)!;
         icon.innerHTML = `<span class="material-icons" style="margin-top: -1px; font-size: 32px; color: ${
-          alert.iconColor ?? '#dc3545'
+          alert.iconColor || '#dc3545'
         }">${alert.iconName}</span>`;
       }
     }
@@ -77,7 +76,6 @@ const AlertModal: FC<Props> = (props: Props) => {
       if (alert) {
         removeAlert(alert.id!);
       }
-      console.log('remove');
     } else {
       modal.classList.add('qbc-alert-modal-visible');
     }
