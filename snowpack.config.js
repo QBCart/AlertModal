@@ -27,7 +27,7 @@ module.exports = {
     'react': '/deps/react.js',
     'react-dom': '/deps/react-dom.js',
     'styled-components': '/deps/styled-components.js',
-    '@qbcart/eshop-local-db': '/eshop/localdb/index.js',
+    '@qbcart/eshop-alert-hooks': '/eshop/alert-hooks/index.js',
   },
   // prettier-ignore
   plugins: [
@@ -40,7 +40,7 @@ module.exports = {
           'react': '/deps/react.js',
           'react-dom': '/deps/react-dom.js',
           'styled-components': '/deps/styled-components.js',
-          '@qbcart/eshop-local-db': '/eshop/localdb/index.js',
+          '@qbcart/eshop-alert-hooks': '/eshop/alert-hooks/index.js',
         },
         // if true, import-map transforms imports in development mode too. default: false.
         dev: false

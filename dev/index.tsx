@@ -1,10 +1,10 @@
-import { useAddAlert } from '@qbcart/eshop-local-db';
+import { useAddModalAlert } from '@qbcart/eshop-alert-hooks';
 import React, { FC } from 'react';
 import { render } from 'react-dom';
 import 'alert-modal';
 
 const DevButton: FC = () => {
-  const addAlert = useAddAlert(false);
+  const addAlert = useAddModalAlert();
   return (
     <button
       onClick={() =>

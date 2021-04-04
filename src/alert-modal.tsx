@@ -6,8 +6,8 @@
  * LICENSE file in the root directory of this source repo.
  */
 
-import React, { FC, useEffect, useState, useRef } from 'react';
-import { useAlerts, useRemoveAlert } from '@qbcart/eshop-local-db';
+import React, { FC, useEffect, useRef } from 'react';
+import { useModalAlert, useRemoveModalAlert } from '@qbcart/eshop-alert-hooks';
 import StyledAlertModalBackdrop from './styled-components/styled-alert-modal-backdrop.js';
 import StyledAlertModalContent from './styled-components/styled-alert-modal-content.js';
 import StyledAlertModalHeader from './styled-components/styled-alert-modal-header.js';
@@ -23,22 +23,8 @@ interface Props {
 
 const AlertModal: FC<Props> = (props: Props) => {
   const ref = useRef<HTMLDivElement>(null);
-  const alerts = useAlerts(false);
-  const [alert, setAlert] = useState(
-    (alerts?.length ?? 0) > 0 ? alerts[0] : undefined
-  );
-  const removeAlert = useRemoveAlert(false);
-
-  // get one at a time from queue
-  useEffect(() => {
-    console.log('get');
-    if ((alerts?.length ?? 0) > 0) {
-      setAlert((alert) => {
-        if (alert?.id === alerts[0].id) return alert;
-        else return alerts[0];
-      });
-    }
-  }, [alerts]);
+  const alert = useModalAlert();
+  const removeAlert = useRemoveModalAlert();
 
   // show alert modal
   useEffect(() => {
@@ -90,7 +76,6 @@ const AlertModal: FC<Props> = (props: Props) => {
       modal.style.display = 'none';
       if (alert) {
         removeAlert(alert.id!);
-        setAlert(undefined);
       }
       console.log('remove');
     } else {
