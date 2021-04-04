@@ -2,7 +2,7 @@
 
 ### New
 
-- none
+- Alert modal component used across the QBCart EShop ecosystem. (Previous versions published as @qbcart/alert-modal.)
 
 ### Fixes
 
