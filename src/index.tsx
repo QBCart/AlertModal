@@ -16,7 +16,9 @@ import AlertModal from './alert-modal.js';
   render(
     <AlertModal
       id={id}
-      imagesStorageUrl={alertModal!.dataset.imagesStorageUrl!}
+      imagesStorageUrl={
+        document.getElementById('qbc-images')!.dataset.imagesStorageUrl!
+      }
     />,
     alertModal
   );
