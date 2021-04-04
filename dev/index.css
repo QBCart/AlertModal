@@ -1,13 +1,14 @@
 body {
-  background: lightgrey;
+  background-color: #2d2d2d;
+  color: snow;
 }
+hr {
+  border-color: snow;
+}
+
 .app-bar {
   display: block;
   height: 64px;
   width: 100%;
-  background: red;
-}
-
-#dev-button {
-  margin-top: 300px;
+  background: black;
 }
