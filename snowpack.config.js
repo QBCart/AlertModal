@@ -12,7 +12,7 @@ module.exports = {
   },
   devOptions: {},
   buildOptions: {
-    out: 'dist',
+    out: 'publish_esm',
     sourcemap: false,
     clean: true,
     metaUrlPath: '.'
