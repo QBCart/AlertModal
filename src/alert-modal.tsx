@@ -6,7 +6,7 @@
  * LICENSE file in the root directory of this source repo.
  */
 
-import React, { FC, useEffect, useState, createRef } from 'react';
+import React, { FC, useEffect, useState, useRef } from 'react';
 import { useAlerts, useRemoveAlert } from '@qbcart/eshop-local-db';
 import StyledAlertModalBackdrop from './styled-components/styled-alert-modal-backdrop.js';
 import StyledAlertModalContent from './styled-components/styled-alert-modal-content.js';
@@ -22,7 +22,7 @@ interface Props {
 }
 
 const AlertModal: FC<Props> = (props: Props) => {
-  const ref = createRef<HTMLDivElement>();
+  const ref = useRef<HTMLDivElement>(null);
   const alerts = useAlerts(false);
   const [alert, setAlert] = useState(
     (alerts?.length ?? 0) > 0 ? alerts[0] : undefined
