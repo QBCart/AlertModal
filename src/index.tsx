@@ -10,16 +10,11 @@ import React from 'react';
 import { render } from 'react-dom';
 import AlertModal from './alert-modal.js';
 
-(function () {
-  const id = 'qbc-alert-modal';
-  const alertModal = document.getElementById(id);
-  render(
-    <AlertModal
-      id={id}
-      imagesStorageUrl={
-        document.getElementById('qbc-images')!.dataset.imagesStorageUrl!
-      }
-    />,
-    alertModal
-  );
-})();
+render(
+  <AlertModal
+    imagesStorageUrl={
+      document.getElementById('qbc-images')!.dataset.imagesStorageUrl!
+    }
+  />,
+  document.getElementById('qbc-alert-modal')
+);
