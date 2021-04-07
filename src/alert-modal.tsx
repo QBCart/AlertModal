@@ -82,7 +82,7 @@ const AlertModal: FC<Props> = (props: Props) => {
     <StyledAlertModalBackdrop ref={ref} onAnimationEnd={() => onAnimationEnd()}>
       <StyledAlertModalContent style={contentStyle}>
         <StyledAlertModalHeader style={headerStyle}>
-          <StyledAlertModalIcon style={iconStyle}>
+          <StyledAlertModalIcon>
             {alert?.iconName ? (
               <span className="material-icons" style={iconStyle}>
                 {alert.iconName}
