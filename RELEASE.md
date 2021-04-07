@@ -6,7 +6,7 @@
 
 ### Fixes
 
-- none
+- Issue causing logo to no longer appear after icon is used.
 
 ### Breaking
 
