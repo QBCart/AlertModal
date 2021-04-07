@@ -171,6 +171,4 @@ const AlertModalTest: FC = () => {
   );
 };
 
-(function () {
-  render(<AlertModalTest />, document.getElementById('alert-modal-test'));
-})();
+render(<AlertModalTest />, document.getElementById('alert-modal-test'));
