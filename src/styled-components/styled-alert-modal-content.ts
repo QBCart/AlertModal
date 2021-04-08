@@ -16,7 +16,6 @@ const StyledAlertModalContent = styled.div`
   max-width: 500px;
   border: 2px solid black;
   border-radius: 4px;
-  z-index: 1000;
 `;
 
 export default StyledAlertModalContent;

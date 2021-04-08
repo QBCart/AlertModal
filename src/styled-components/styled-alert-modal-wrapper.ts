@@ -8,13 +8,15 @@
 
 import styled from 'styled-components';
 
-const StyledAlertModalBackdrop = styled.div`
+const StyledAlertModalWrapper = styled.div`
   position: fixed;
   top: 0;
   height: 100vh;
   width: 100vw;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 2000;
+  z-index: 2500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
-export default StyledAlertModalBackdrop;
+export default StyledAlertModalWrapper;

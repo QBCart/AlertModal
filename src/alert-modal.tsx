@@ -8,7 +8,9 @@
 
 import React, { FC, useEffect, useRef } from 'react';
 import { useModalAlert, useRemoveModalAlert } from '@qbcart/eshop-alert-hooks';
+import StyledAlertModal from './styled-components/styled-alert-modal.js';
 import StyledAlertModalBackdrop from './styled-components/styled-alert-modal-backdrop.js';
+import StyledAlertModalWrapper from './styled-components/styled-alert-modal-wrapper.js';
 import StyledAlertModalContent from './styled-components/styled-alert-modal-content.js';
 import StyledAlertModalHeader from './styled-components/styled-alert-modal-header.js';
 import StyledAlertModalHeaderText from './styled-components/styled-alert-modal-header-text.js';
@@ -79,42 +81,45 @@ const AlertModal: FC<Props> = (props: Props) => {
   };
 
   return (
-    <StyledAlertModalBackdrop ref={ref} onAnimationEnd={() => onAnimationEnd()}>
-      <StyledAlertModalContent style={contentStyle}>
-        <StyledAlertModalHeader style={headerStyle}>
-          <StyledAlertModalIcon>
-            {alert?.iconName ? (
-              <span className="material-icons" style={iconStyle}>
-                {alert.iconName}
-              </span>
-            ) : (
-              <img
-                src={`${props.imagesStorageUrl}images/favicon.ico`}
-                alt="company logo"
-                width="36"
-              />
-            )}
-          </StyledAlertModalIcon>
-          <StyledAlertModalHeaderText
-            dangerouslySetInnerHTML={{ __html: alert?.headerText ?? '' }}
+    <StyledAlertModal ref={ref} onAnimationEnd={() => onAnimationEnd()}>
+      <StyledAlertModalWrapper>
+        <StyledAlertModalContent style={contentStyle}>
+          <StyledAlertModalHeader style={headerStyle}>
+            <StyledAlertModalIcon>
+              {alert?.iconName ? (
+                <span className="material-icons" style={iconStyle}>
+                  {alert.iconName}
+                </span>
+              ) : (
+                <img
+                  src={`${props.imagesStorageUrl}images/favicon.ico`}
+                  alt="company logo"
+                  width="36"
+                />
+              )}
+            </StyledAlertModalIcon>
+            <StyledAlertModalHeaderText
+              dangerouslySetInnerHTML={{ __html: alert?.headerText ?? '' }}
+            />
+          </StyledAlertModalHeader>
+
+          <StyledAlertModalBody
+            dangerouslySetInnerHTML={{ __html: alert?.htmlBody ?? '' }}
           />
-        </StyledAlertModalHeader>
 
-        <StyledAlertModalBody
-          dangerouslySetInnerHTML={{ __html: alert?.htmlBody ?? '' }}
-        />
-
-        <StyledAlertModalFooter>
-          <button
-            onClick={hideModal}
-            className="btn btn-secondary"
-            type="button"
-          >
-            OK
-          </button>
-        </StyledAlertModalFooter>
-      </StyledAlertModalContent>
-    </StyledAlertModalBackdrop>
+          <StyledAlertModalFooter>
+            <button
+              onClick={hideModal}
+              className="btn btn-secondary"
+              type="button"
+            >
+              OK
+            </button>
+          </StyledAlertModalFooter>
+        </StyledAlertModalContent>
+      </StyledAlertModalWrapper>
+      <StyledAlertModalBackdrop />
+    </StyledAlertModal>
   );
 };
 
