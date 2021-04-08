@@ -15,7 +15,7 @@ const StyledAlertModalBackdrop = styled.div`
   height: 100vh;
   width: 100vw;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 2000;
+  z-index: 2100;
 `;
 
 export default StyledAlertModalBackdrop;
