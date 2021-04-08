@@ -11,6 +11,7 @@ import styled from 'styled-components';
 const StyledAlertModalWrapper = styled.div`
   position: fixed;
   top: 0;
+  left: 0;
   height: 100vh;
   width: 100vw;
   z-index: 2500;
