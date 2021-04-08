@@ -35,9 +35,7 @@ const AlertModal: FC<Props> = (props: Props) => {
     if (alert) {
       const modal = ref.current!;
       modal.style.animationName = 'var(--alert-modal-show)';
-      modal.style.display = 'flex';
-      modal.style.justifyContent = 'center';
-      modal.style.alignItems = 'center';
+      modal.style.display = 'block';
     }
   }, [alert, ref]);
 
