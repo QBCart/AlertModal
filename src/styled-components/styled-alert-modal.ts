@@ -11,22 +11,18 @@ import styled, { keyframes } from 'styled-components';
 const AlertModalShow = keyframes`
    from {
       opacity: 0;
-      z-index: 2000;
    }
    to {
       opacity: 1;
-      z-index: 2000;
    }
  `;
 
 const AlertModalHide = keyframes`
    from {
       opacity: 1;
-      z-index: 2000;
    }
    to {
       opacity: 0;
-      z-index: 2000;
    }
  `;
 

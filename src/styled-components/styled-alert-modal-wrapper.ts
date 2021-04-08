@@ -14,7 +14,7 @@ const StyledAlertModalWrapper = styled.div`
   left: 0;
   height: 100vh;
   width: 100vw;
-  z-index: 2500;
+  z-index: 2001;
   display: flex;
   justify-content: center;
   align-items: center;

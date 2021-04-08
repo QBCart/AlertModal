@@ -10,11 +10,14 @@ import React from 'react';
 import { render } from 'react-dom';
 import AlertModal from './alert-modal.js';
 
+const mountingDiv = document.getElementById('qbc-alert-modal');
+mountingDiv!.style.zIndex = '2000';
+
 render(
   <AlertModal
     imagesStorageUrl={
       document.getElementById('qbc-images')!.dataset.imagesStorageUrl!
     }
   />,
-  document.getElementById('qbc-alert-modal')
+  mountingDiv
 );
