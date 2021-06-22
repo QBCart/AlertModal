@@ -11,13 +11,20 @@ import { render } from 'react-dom';
 
 import AlertModal from './alert-modal/index.js';
 
-const mountingDiv = document.getElementById('qbc-alert-modal');
+const globalMountsContainer = document.getElementById(
+  'qbc-eshop-global-mounts'
+)!;
+const mountingDiv = document.createElement('div');
+
 mountingDiv!.style.zIndex = '2000';
+mountingDiv.id = 'qbc-eshop-alert-modal';
+globalMountsContainer.appendChild(mountingDiv);
 
 render(
   <AlertModal
     imagesStorageUrl={
-      document.getElementById('qbc-images')!.dataset.imagesStorageUrl!
+      document.getElementById('qbc-eshop-company-settings')!.dataset
+        .imagesStorageUrl!
     }
   />,
   mountingDiv
