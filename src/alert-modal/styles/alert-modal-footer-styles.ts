@@ -8,12 +8,10 @@
 
 import styled from 'styled-components';
 
-const StyledAlertModalHeader = styled.div`
+const AlertModalFooterStyles = styled.div`
   display: flex;
+  justify-content: flex-end;
   padding: 10px;
-  border-bottom: 2px solid black;
-  border-top-left-radius: 2px !important;
-  border-top-right-radius: 2px !important;
 `;
 
-export default StyledAlertModalHeader;
+export default AlertModalFooterStyles;

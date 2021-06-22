@@ -8,7 +8,7 @@
 
 import styled from 'styled-components';
 
-const StyledAlertModalContent = styled.div`
+const AlertModalContentStyles = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -18,4 +18,4 @@ const StyledAlertModalContent = styled.div`
   border-radius: 4px;
 `;
 
-export default StyledAlertModalContent;
+export default AlertModalContentStyles;

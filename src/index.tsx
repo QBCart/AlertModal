@@ -8,7 +8,8 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import AlertModal from './alert-modal.js';
+
+import AlertModal from './alert-modal/index.js';
 
 const mountingDiv = document.getElementById('qbc-alert-modal');
 mountingDiv!.style.zIndex = '2000';

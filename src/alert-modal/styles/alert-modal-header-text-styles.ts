@@ -8,16 +8,10 @@
 
 import styled from 'styled-components';
 
-const StyledAlertModalWrapper = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  z-index: 2001;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+const AlertModalHeaderTextStyles = styled.div`
+  line-height: 1.7;
+  font-size: 24px;
+  margin-left: 10px;
 `;
 
-export default StyledAlertModalWrapper;
+export default AlertModalHeaderTextStyles;

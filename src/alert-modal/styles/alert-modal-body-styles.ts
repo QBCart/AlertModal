@@ -8,13 +8,8 @@
 
 import styled from 'styled-components';
 
-const StyledAlertModalBackdrop = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  background: rgba(0, 0, 0, 0.5);
+const AlertModalBodyStyles = styled.div`
+  padding: 20px;
 `;
 
-export default StyledAlertModalBackdrop;
+export default AlertModalBodyStyles;

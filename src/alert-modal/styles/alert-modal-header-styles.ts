@@ -8,10 +8,12 @@
 
 import styled from 'styled-components';
 
-const StyledAlertModalIcon = styled.div`
-  height: 30px;
-  width: 30px;
-  margin: 5px;
+const AlertModalHeaderStyles = styled.div`
+  display: flex;
+  padding: 10px;
+  border-bottom: 2px solid black;
+  border-top-left-radius: 2px !important;
+  border-top-right-radius: 2px !important;
 `;
 
-export default StyledAlertModalIcon;
+export default AlertModalHeaderStyles;

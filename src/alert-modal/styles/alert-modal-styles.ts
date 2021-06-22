@@ -26,11 +26,11 @@ const AlertModalHide = keyframes`
    }
  `;
 
-const StyledAlertModal = styled.div`
+const AlertModalStyles = styled.div`
   display: none;
   animation-duration: 0.5s;
   --alert-modal-show: ${AlertModalShow};
   --alert-modal-hide: ${AlertModalHide};
 `;
 
-export default StyledAlertModal;
+export default AlertModalStyles;

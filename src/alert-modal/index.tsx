@@ -8,16 +8,17 @@
 
 import React, { FC, useEffect, useRef } from 'react';
 import { useModalAlert, useRemoveModalAlert } from '@qbcart/eshop-alert-hooks';
-import StyledAlertModal from './styled-components/styled-alert-modal.js';
-import StyledAlertModalBackdrop from './styled-components/styled-alert-modal-backdrop.js';
-import StyledAlertModalWrapper from './styled-components/styled-alert-modal-wrapper.js';
-import StyledAlertModalContent from './styled-components/styled-alert-modal-content.js';
-import StyledAlertModalHeader from './styled-components/styled-alert-modal-header.js';
-import StyledAlertModalHeaderText from './styled-components/styled-alert-modal-header-text.js';
-import StyledAlertModalIcon from './styled-components/styled-alert-modal-icon.js';
-import StyledAlertModalBody from './styled-components/styled-alert-modal-body.js';
-import StyledAlertModalFooter from './styled-components/styled-alert-modal-footer.js';
 import type { CSSProperties } from 'styled-components';
+
+import AlertModalStyles from './styles/alert-modal-styles.js';
+import AlertModalBackdropStyles from './styles/alert-modal-backdrop-styles.js';
+import AlertModalWrapperStyles from './styles/alert-modal-wrapper-styles.js';
+import AlertModalContentStyles from './styles/alert-modal-content-styles.js';
+import AlertModalHeaderStyles from './styles/alert-modal-header-styles.js';
+import AlertModalHeaderTextStyles from './styles/alert-modal-header-text-styles.js';
+import AlertModalIconStyles from './styles/alert-modal-icon-styles.js';
+import AlertModalBodyStyles from './styles/alert-modal-body-styles.js';
+import AlertModalFooterStyles from './styles/alert-modal-footer-styles.js';
 
 interface Props {
   imagesStorageUrl: string;
@@ -79,11 +80,11 @@ const AlertModal: FC<Props> = (props: Props) => {
   };
 
   return (
-    <StyledAlertModal ref={ref} onAnimationEnd={() => onAnimationEnd()}>
-      <StyledAlertModalWrapper>
-        <StyledAlertModalContent style={contentStyle}>
-          <StyledAlertModalHeader style={headerStyle}>
-            <StyledAlertModalIcon>
+    <AlertModalStyles ref={ref} onAnimationEnd={() => onAnimationEnd()}>
+      <AlertModalWrapperStyles>
+        <AlertModalContentStyles style={contentStyle}>
+          <AlertModalHeaderStyles style={headerStyle}>
+            <AlertModalIconStyles>
               {alert?.iconName ? (
                 <span className="material-icons" style={iconStyle}>
                   {alert.iconName}
@@ -95,17 +96,17 @@ const AlertModal: FC<Props> = (props: Props) => {
                   width="36"
                 />
               )}
-            </StyledAlertModalIcon>
-            <StyledAlertModalHeaderText
+            </AlertModalIconStyles>
+            <AlertModalHeaderTextStyles
               dangerouslySetInnerHTML={{ __html: alert?.headerText ?? '' }}
             />
-          </StyledAlertModalHeader>
+          </AlertModalHeaderStyles>
 
-          <StyledAlertModalBody
+          <AlertModalBodyStyles
             dangerouslySetInnerHTML={{ __html: alert?.htmlBody ?? '' }}
           />
 
-          <StyledAlertModalFooter>
+          <AlertModalFooterStyles>
             <button
               onClick={hideModal}
               className="btn btn-secondary"
@@ -113,11 +114,11 @@ const AlertModal: FC<Props> = (props: Props) => {
             >
               OK
             </button>
-          </StyledAlertModalFooter>
-        </StyledAlertModalContent>
-      </StyledAlertModalWrapper>
-      <StyledAlertModalBackdrop />
-    </StyledAlertModal>
+          </AlertModalFooterStyles>
+        </AlertModalContentStyles>
+      </AlertModalWrapperStyles>
+      <AlertModalBackdropStyles />
+    </AlertModalStyles>
   );
 };
 
