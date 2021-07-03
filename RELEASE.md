@@ -2,11 +2,11 @@
 
 ### New
 
-- none
+- Removed bootstrap classes.
 
 ### Fixes
 
-- none
+- Added cache-control header to speed up cdn purge.
 
 ### Breaking
 
