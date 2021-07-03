@@ -107,11 +107,7 @@ const AlertModal: FC<Props> = (props: Props) => {
           />
 
           <AlertModalFooterStyles>
-            <button
-              onClick={hideModal}
-              className="btn btn-secondary"
-              type="button"
-            >
+            <button onClick={hideModal} className="close-button" type="button">
               OK
             </button>
           </AlertModalFooterStyles>
